@@ -9,4 +9,9 @@ Sakila database is a sample database in SQL that allows beginners to practice, l
 ```sql
 select * from film where rental_rate > 2.99;
 ```
-   
+**2. Find the total number of films in each category, ordered from the highest to lowest**
+```sql
+select name, count(film_id) as total_film from category join film_category using (category_id) 
+group by name 
+having total_film  order by total_film desc;
+```
